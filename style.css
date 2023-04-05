@@ -1,4 +1,4 @@
-#textPanel {
+.panel_body {
   display: none;
   position: absolute;
   top: 0;
@@ -7,22 +7,22 @@
   border: 1px solid #000;
 }
 
-.panelButton {
+.symbolButton {
   /* display: block; */
   margin: 1px;
 }
-.textPanelRow {
+.panel_body_row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3px;
 }
 
-.panelButton:focus {
+.symbolButton:focus {
   border-color: red;
   border-style: dashed;
 }
 
-/* .panelButton:focus:not(:focus-visible) {
+/* .symbolButton:focus:not(:focus-visible) {
   outline: none;
   border-color: black;
   border-style: solid;
