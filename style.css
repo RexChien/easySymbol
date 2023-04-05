@@ -1,0 +1,30 @@
+#textPanel {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #eedfbf;
+  border: 1px solid #000;
+}
+
+.panelButton {
+  /* display: block; */
+  margin: 1px;
+}
+.textPanelRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.panelButton:focus {
+  border-color: red;
+  border-style: dashed;
+}
+
+/* .panelButton:focus:not(:focus-visible) {
+  outline: none;
+  border-color: black;
+  border-style: solid;
+} */
+
