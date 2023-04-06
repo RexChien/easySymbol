@@ -1,4 +1,4 @@
-.panel_body {
+[easySymbolClass="panel_body"] {
   display: none;
   position: absolute;
   top: 0;
@@ -7,17 +7,17 @@
   border: 1px solid #000;
 }
 
-.symbolButton {
+[easySymbolClass="symbolButton"] {
   /* display: block; */
   margin: 1px;
 }
-.panel_body_row {
+[easySymbolClass="panel_body_row"] {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3px;
 }
 
-.symbolButton:focus {
+[easySymbolClass="symbolButton"]:focus {
   border-color: red;
   border-style: dashed;
 }

@@ -9,15 +9,14 @@ const symbolList = [
   { symbol: '；', name: "分號", canSurround: false, description: "用於分開複句中平列的句子。" },
   { symbol: '……', name: "刪節號", canSurround: false, description: "用於節略原文、語句未完、意思未盡，或表示語句斷斷續續等。" },
   { symbol: '．', name: "間隔號", canSurround: false, description: "一、用於書名號乙式書名與篇章卷名之間。\n二、用於書名號乙式套書與單本書名之間。\n三、用於原住民命名習慣之間隔。\n四、用於翻譯外國人的名字與姓氏之間。" },
-  { symbol: '—', name: "連接號甲式", canSurround: false, description: "用於連接時空的起止或數量的多寡等。" },
-  { symbol: '～', name: "連接號乙式", canSurround: false, description: "用於連接時空的起止或數量的多寡等。" },
+  { symbol: '—', name: "連接號", canSurround: false, description: "用於連接時空的起止或數量的多寡等。" },
   { symbol: '「', name: "上單引號", canSurround: true, description: "一、用於標示說話、引語、特別指稱或強調的詞語。\n二、引號分單引號及雙引號，通常先用單引號，如果有需要，單引號內再用雙引號，依此類推。\n三、一般引文的句尾符號標在引號之內。\n四、引文用作全句結構中的一部分，其下引號之前，通常不加標點符號。" },
   { symbol: '」', name: "下單引號", canSurround: false, description: "一、用於標示說話、引語、特別指稱或強調的詞語。\n二、引號分單引號及雙引號，通常先用單引號，如果有需要，單引號內再用雙引號，依此類推。\n三、一般引文的句尾符號標在引號之內。\n四、引文用作全句結構中的一部分，其下引號之前，通常不加標點符號。" },
   { symbol: '『', name: "上雙引號", canSurround: true, description: "一、用於標示說話、引語、特別指稱或強調的詞語。\n二、引號分單引號及雙引號，通常先用單引號，如果有需要，單引號內再用雙引號，依此類推。\n三、一般引文的句尾符號標在引號之內。\n四、引文用作全句結構中的一部分，其下引號之前，通常不加標點符號。" },
   { symbol: '』', name: "下雙引號", canSurround: false, description: "一、用於標示說話、引語、特別指稱或強調的詞語。\n二、引號分單引號及雙引號，通常先用單引號，如果有需要，單引號內再用雙引號，依此類推。\n三、一般引文的句尾符號標在引號之內。\n四、引文用作全句結構中的一部分，其下引號之前，通常不加標點符號。" },
-  { symbol: '（', name: "上夾注號甲式", canSurround: true, description: "用於行文中需要注釋或補充說明。" },
-  { symbol: '）', name: "下夾注號甲式", canSurround: false, description: "用於行文中需要注釋或補充說明。" },
-  { symbol: '──', name: "夾注號乙式或破折號", canSurround: true, description: "夾注號乙式：用於行文中需要注釋或補充說明。\n破折號：用於語意的轉變、聲音的延續，或在行文中為補充說明某詞語之處，而此說明後文氣需要停頓。" },
+  { symbol: '（', name: "上夾注號", canSurround: true, description: "用於行文中需要注釋或補充說明。" },
+  { symbol: '）', name: "下夾注號", canSurround: false, description: "用於行文中需要注釋或補充說明。" },
+  { symbol: '──', name: "破折號", canSurround: true, description: "用於語意的轉變、聲音的延續，或在行文中為補充說明某詞語之處，而此說明後文氣需要停頓。" },
   { symbol: '《', name: "上雙書名號", canSurround: true, description: "一、《 》多用於書名，〈 〉多用於篇名。\n二、前半不出現在一行之末，後半不出現在一行之首。" },
   { symbol: '》', name: "下雙書名號", canSurround: false, description: "一、《 》多用於書名，〈 〉多用於篇名。\n二、前半不出現在一行之末，後半不出現在一行之首。" },
   { symbol: '〈', name: "上單書名號", canSurround: true, description: "一、《 》多用於書名，〈 〉多用於篇名。\n二、前半不出現在一行之末，後半不出現在一行之首。" },
@@ -25,19 +24,19 @@ const symbolList = [
 ];
 
 //#region - Create panel element
-const panel_all = document.createElement('div'); panel_all.className = 'panel_all';
+const panel_all = document.createElement('div'); panel_all.setAttribute('easySymbolClass', "panel_all");
 document.body.appendChild(panel_all);
 
-const panel_head = document.createElement('div'); panel_head.className = 'panel_head';
+const panel_head = document.createElement('div'); panel_head.setAttribute('easySymbolClass', "panel_head");
 panel_all.appendChild(panel_head);
 
-const panel_body = document.createElement('div'); panel_body.className = 'panel_body';
+const panel_body = document.createElement('div'); panel_body.setAttribute('easySymbolClass', "panel_body");
 panel_all.appendChild(panel_body);
 
 //#region - Add item to panel_body
-let panel_body_row = document.createElement('div'); panel_body_row.className = 'panel_body_row';
+let panel_body_row = document.createElement('div'); panel_body_row.setAttribute('easySymbolClass', "panel_body_row");
 for (let i = 0; i < symbolList.length; i++) {
-  const symbolButton = document.createElement('button'); symbolButton.className = 'symbolButton';
+  const symbolButton = document.createElement('button'); symbolButton.setAttribute('easySymbolClass', "symbolButton"); symbolButton.setAttribute('easySymbolId', `button${i}`);
   symbolButton.innerText = symbolList[i].symbol;
   symbolButton.tabIndex = i;
   symbolButton.addEventListener('click', function () { insertText(symbolList[i].symbol); });
@@ -45,7 +44,7 @@ for (let i = 0; i < symbolList.length; i++) {
 
   if ((i + 1) % 11 === 0 || i === symbolList.length - 1) {
     panel_body.appendChild(panel_body_row);
-    panel_body_row = document.createElement('div'); panel_body_row.className = 'panel_body_row';
+    panel_body_row = document.createElement('div'); panel_body_row.setAttribute('easySymbolClass', "panel_body_row");
   }
 }
 //#endregion
@@ -88,20 +87,14 @@ document.addEventListener('keydown', function (event) {
           panel_body.style.top = `${focusedElement.offsetTop + focusedElement.offsetHeight}px`;
         }
         // set focus to the text panel and bind keydown event to it
-        panel_body.focus();
+        // document.getElementById('button0').focus();
+        document.querySelector("[easySymbolId=button0]");
+        // panel_body.focus();
 
       }
       event.preventDefault();
     }
   }
-});
-
-
-
-panel_body.addEventListener('focus', function () {
-  alert(firstButton);
-  const firstButton = panel_body.querySelector('button');
-  if (firstButton) { firstButton.focus(); }
 });
 
 panel_body.addEventListener('keydown', function (event) {
@@ -113,20 +106,18 @@ panel_body.addEventListener('keydown', function (event) {
     let nextButton;
     switch (event.key) {
       case 'ArrowLeft':
-        nextButton = activeButton.previousElementSibling || panel_body.lastElementChild;
+        nextButton = activeButton.previousElementSibling;
         break;
       case 'ArrowUp':
-        nextButton = activeButton.previousElementSibling || panel_body.lastElementChild;
+        nextButton = activeButton.previousElementSibling //|| panel_body.lastElementChild;
         break;
       case 'ArrowRight':
-        nextButton = activeButton.nextElementSibling || panel_body.firstElementChild;
+        nextButton = activeButton.nextElementSibling;
         break;
       case 'ArrowDown':
-        nextButton = activeButton.nextElementSibling || panel_body.firstElementChild;
+        nextButton = activeButton.nextElementSibling //|| panel_body.firstElementChild;
         break;
     }
     if (nextButton) { nextButton.focus(); }
   }
 });
-
-

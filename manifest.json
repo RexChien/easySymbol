@@ -1,16 +1,31 @@
 {
-    "manifest_version": 2,
-    "name": "easySymbol",
-    "version": "1.0",
-    "description": "Your Extension Description",
-    "permissions": ["activeTab"],
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"],
-        "css": ["style.css"]
-      }
-    ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "manifest_version": 2,
+  "name": "快速標點符號",
+  "version": "1.0.0",
+  "description": "方便快速輸入標點符號",
+  "homepage_url": "https://github.com/RexChien/easySymbol",
+  "author": "RexChien",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_scripts/content.js"
+      ],
+      "css": [
+        "content_scripts/style.css"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icons/32.png",
+    "default_title": "快速標點符號",
+    "default_popup": "popup/symbol.html"
   }
-  
+}
